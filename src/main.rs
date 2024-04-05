@@ -11,7 +11,11 @@ fn main() {
     let telegram_thread = thread::spawn(|| {
         telegram_bot::start();
     });
+    let discord_thred = thread::spawn(|| {
+        discord_bot::start();
+    });
     telegram_thread.join().unwrap();
+    discord_thred.join().unwrap();
 }
 
 const REDIRECT_BUTTON_TEXT: &str = "Contact";

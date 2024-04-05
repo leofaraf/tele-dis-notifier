@@ -8,8 +8,8 @@ type HandlerResult = Result<(), Box<dyn std::error::Error + Send + Sync>>;
 
 const TELOXIDE_TOKEN: &str = "6896702664:AAGD_wkHv7fPg0HCMVezDyIuHl60g4cjylw";
 
-const ADMIN_IDS: [u64; 1] = [
-    5488031843
+const ADMIN_IDS: [u64; 2] = [
+    5488031843, 7041070645
 ];
 
 #[derive(BotCommands, Clone)]

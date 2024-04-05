@@ -1,4 +1,5 @@
 use reqwest::Url;
+use serenity::all::Message;
 use teloxide::types::ChatId;
 
 use crate::url_storage::UrlStorage;
@@ -13,6 +14,18 @@ pub fn url_from_chat_id(chat_id: ChatId) -> Option<Url> {
     Url::parse(
         UrlStorage::get_url(chat_id.0.to_string()).as_str()
     ).ok()
+}
+
+pub fn url_from_id(id: u64) -> Option<String> {
+    let id_str = id.to_string();
+    let url_str = UrlStorage::get_url(id_str.clone());
+
+    match check_url_string(
+        &url_str
+    ) {
+        true => Some(url_str),
+        false => None,
+    }
 }
 
 pub fn check_url_string(url: &str) -> bool {
